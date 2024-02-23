@@ -1,6 +1,20 @@
+import React from 'react'
+import { Container } from '@mui/material'
+import CustomerCreate from './components/CustomerCreate';
+import ProductCreate from './components/ProductCreate';
+
+
+
+
+
 const Create = () => {
   return (
-    <div>Create</div>
+    <Container>
+      <React.Fragment>
+        <CustomerCreate />
+        <ProductCreate />
+      </React.Fragment>
+    </Container>
   )
 }
 
