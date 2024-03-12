@@ -1,7 +1,7 @@
-import axios from 'axios'
-import { useState, useEffect } from 'react'
-import Product from './components/Product';
-import { Container, Grid } from "@mui/material"
+import axios from "axios";
+import { useState, useEffect } from "react";
+import Product from "./components/Product";
+import { Container, Grid } from "@mui/material";
 
 export interface IProduct {
   description?: string;
@@ -9,8 +9,8 @@ export interface IProduct {
   _links: {
     product: {
       href: string;
-    }
-  }
+    };
+  };
 }
 
 const Home = () => {
@@ -18,22 +18,23 @@ const Home = () => {
 
   useEffect(() => {
     const fetchData = async () => {
-      const response = await axios.get('http://localhost:8080/products')
-      console.log("nesto ne valja")
+      const response = await axios.get(
+        "https://be-vidoje.azurewebsites.net/products"
+      );
       setProducts(response.data._embedded.products);
-    }
+    };
     fetchData();
-  }, [JSON.stringify(products)])
+  }, [JSON.stringify(products)]);
 
   return (
     <Container>
       <Grid container spacing={3} mt={1}>
         {products?.map((item: IProduct, index: number) => (
-          <Product key={index} {...item}/>
+          <Product key={index} {...item} />
         ))}
       </Grid>
     </Container>
-  )
-}
+  );
+};
 
-export default Home
+export default Home;
