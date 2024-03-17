@@ -5,7 +5,7 @@ import { Box } from "@mui/material";
 const Home = () => {
   useEffect(() => {
     const fetchData = async () => {
-      const response = await axios.get("https://be-objects-main.onrender.com");
+      const response = await axios.get("https://be-objects.azurewebsites.net/");
       console.log(response);
     };
     fetchData();
